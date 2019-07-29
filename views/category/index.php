@@ -3,7 +3,6 @@
 /* @var $this yii\web\View */
 use yii\helpers\Html;
 
-$this->title = 'Shop';
 ?>
 
 <section id="slider"><!--slider-->
@@ -108,7 +107,7 @@ $this->title = 'Shop';
                     </div><!--/price-range-->
 
                     <div class="shipping text-center"><!--shipping-->
-                        <img src="images/home/shipping.jpg" alt=""/>
+                        <img src="/images/home/shipping.jpg" alt=""/>
                     </div><!--/shipping-->
 
                 </div>
