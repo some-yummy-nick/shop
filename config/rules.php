@@ -1,6 +1,6 @@
 <?php
 return [
-    '' => 'site/index',
+    '' => 'category/index',
     'about'   => 'site/about',
     'category/<id:\d+>'   => 'category/view'
 ];
