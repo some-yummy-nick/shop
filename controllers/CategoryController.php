@@ -10,7 +10,6 @@ namespace app\controllers;
 
 use app\models\Category;
 use app\models\Product;
-use Yii;
 use yii\data\Pagination;
 use yii\web\HttpException;
 
@@ -25,7 +24,6 @@ class CategoryController extends AppController
 
     public function actionView($id)
     {
-        $id = Yii::$app->request->get('id');
         $category = Category::findOne($id);
         if (empty($category)) {
             throw  new HttpException(404, 'Такой категории нет');

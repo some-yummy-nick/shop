@@ -137,7 +137,9 @@ AppAsset::register($this);
                 </div>
                 <div class="col-sm-3">
                     <div class="search_box pull-right">
-                        <input type="text" placeholder="Search"/>
+                        <form action="<?= \yii\helpers\Url::to(['search/search']) ?>">
+                        <input type="text" placeholder="Search" name="q"/>
+                        </form>
                     </div>
                 </div>
             </div>
