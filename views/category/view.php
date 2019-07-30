@@ -56,34 +56,42 @@ use yii\helpers\Html;
                 <?php if (!empty($products)): ?>
                     <div class="features_items"><!--features_items-->
                         <h2 class="title text-center"><?= $category->name ?></h2>
-                        <?php foreach ($products as $product): ?>
-                            <div class="col-sm-4">
-                                <div class="product-image-wrapper">
-                                    <div class="single-products">
-                                        <div class="productinfo text-center">
-                                            <?= Html::img("@web/images/products/{$product->img}", ['alt' => $product->name]) ?>
-                                            <h2>$<?= $product->price ?></h2>
-                                            <p><?= $product->name ?></p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i
-                                                        class="fa fa-shopping-cart"></i>Add
-                                                to cart</a>
+                        <div class="row">
+                            <?php foreach ($products as $product): ?>
+                                <div class="col-sm-4">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <?= Html::img("@web/images/products/{$product->img}", ['alt' => $product->name]) ?>
+                                                <h2>$<?= $product->price ?></h2>
+                                                <p><?= $product->name ?></p>
+                                                <a href="#" class="btn btn-default add-to-cart"><i
+                                                            class="fa fa-shopping-cart"></i>Add
+                                                    to cart</a>
+                                            </div>
+                                            <?php if ($product->new): ?>
+                                                <?= Html::img("@web/images/home/new.png", ['alt' => 'Новинка', 'class' => 'new']) ?>
+                                            <?php endif ?>
+                                            <?php if ($product->sale): ?>
+                                                <?= Html::img("@web/images/home/sale.png", ['alt' => 'Распродажа', 'class' => 'new']) ?>
+                                            <?php endif ?>
                                         </div>
-                                        <?php if ($product->new): ?>
-                                            <?= Html::img("@web/images/home/new.png", ['alt' => 'Новинка', 'class' => 'new']) ?>
-                                        <?php endif ?>
-                                        <?php if ($product->sale): ?>
-                                            <?= Html::img("@web/images/home/sale.png", ['alt' => 'Распродажа', 'class' => 'new']) ?>
-                                        <?php endif ?>
-                                    </div>
-                                    <div class="choose">
-                                        <ul class="nav nav-pills nav-justified">
-                                            <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                                            <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-                                        </ul>
+                                        <div class="choose">
+                                            <ul class="nav nav-pills nav-justified">
+                                                <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a>
+                                                </li>
+                                                <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        </div>
+                        <?php
+                        echo \yii\widgets\LinkPager::widget([
+                            'pagination' => $pages
+                        ]);
+                        ?>
                     </div><!--features_items-->
                 <?php else : ?>
                     <h2>Здесь товаров пока нет...</h2>
