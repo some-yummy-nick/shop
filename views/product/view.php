@@ -118,7 +118,7 @@ use yii\helpers\Html;
                     </div>
                 </div><!--/product-details-->
 
-                <div class="recommended_items"><!--recommended_items-->
+                <div class="recommended_items">
                     <h2 class="title text-center">FEATURES ITEMS</h2>
 
                     <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">

@@ -60,7 +60,7 @@ AppAsset::register($this);
                     <div class="logo pull-left">
                         <a href="<?=  \yii\helpers\Url::home()?>">
                             <?= Html::img("@web/images/home/logo.png", ['alt' => 'E-SHOPPER']) ?>
-
+                        </a>
                     </div>
                     <div class="btn-group pull-right">
                         <div class="btn-group">
@@ -131,7 +131,6 @@ AppAsset::register($this);
                                     <li><a href="blog-single.html">Blog Single</a></li>
                                 </ul>
                             </li>
-                            <li><a href="404.html">404</a></li>
                             <li><a href="contact-us.html">Contact</a></li>
                         </ul>
                     </div>
