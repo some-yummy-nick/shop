@@ -2499,3 +2499,8 @@ h2.title {
 }
 
 
+.table-cart img{
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}

@@ -7,9 +7,29 @@
 /* @var $exception Exception */
 
 use yii\helpers\Html;
+use app\assets\ErrorAsset;
+
+ErrorAsset::register($this);
 
 $this->title = $name;
 ?>
+<?php $this->beginPage() ?>
+<!DOCTYPE html>
+<html lang="<?= Yii::$app->language ?>">
+<head>
+    <meta charset="<?= Yii::$app->charset ?>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php $this->registerCsrfMetaTags() ?>
+    <title><?= Html::encode($this->title) ?></title>
+    <?php $this->head() ?>
+    <?php
+    $this->registerJsFile('js/html5shiv.js', ['position' => \yii\web\View::POS_HEAD, 'condition' => 'lte IE9'])
+    ?>
+
+</head>
+<body>
+<?php $this->beginBody() ?>
 <div class="site-error">
     <div class="container text-center">
         <div class="logo-404">
@@ -32,3 +52,7 @@ $this->title = $name;
         </div>
     </div>
 </div>
+<?php $this->endBody() ?>
+</body>
+</html>
+<?php $this->endPage() ?>
