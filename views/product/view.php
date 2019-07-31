@@ -99,11 +99,11 @@ use yii\helpers\Html;
                             <span>
 									<span>US $<?= ($product->price) ?></span>
 									<label>Quantity:</label>
-									<input type="text" value="3"/>
-									<button type="button" class="btn btn-fefault cart">
+									<input type="number" min="1" value="1" class="js-qty"/>
+									<a href="<?= \yii\helpers\Url::to(['cart/add', 'id'=>$product->id])?>" data-id="<?= $product->id ?>" class="btn btn-fefault cart add-to-cart">
 										<i class="fa fa-shopping-cart"></i>
 										Add to cart
-									</button>
+									</a>
 								</span>
 
                             <p><b>Brand:</b>
@@ -138,9 +138,9 @@ use yii\helpers\Html;
                                                 <p>
                                                     <a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $hit->id]) ?>"> <?= $hit->name ?></a>
                                                 </p>
-                                                <button type="button" class="btn btn-default add-to-cart"><i
+                                                <a href="<?= \yii\helpers\Url::to(['cart/add', 'id'=>$hit->id])?>" data-id="<?= $hit->id ?>" type="button" class="btn btn-default add-to-cart"><i
                                                             class="fa fa-shopping-cart"></i>Add to cart
-                                                </button>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>

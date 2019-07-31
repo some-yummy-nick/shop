@@ -53,10 +53,11 @@ $(document).ready(function () {
 
     $(".add-to-cart").on("click", function (e) {
         e.preventDefault();
-        var id = $(this).data("id");
+        var id = $(this).data("id"),
+        qty= $(".js-qty").val();
         $.ajax({
             url: "/cart/add",
-            data: {id: id},
+            data: {id: id, qty:qty},
             type: "GET",
             success: function (response) {
                 showCart(response);

@@ -2498,8 +2498,20 @@ h2.title {
     color: #FE980F;
 }
 
+.getCart {
+    background: none;
+    margin: 0;
+    border: none;
+    margin-top: 10px;
+    color: #696763;
+    transition: 300ms;
+}
 
-.table-cart img{
+.getCart:hover {
+    color: #fe980f;
+}
+
+.table-cart img {
     width: 50px;
     height: 50px;
     object-fit: contain;
