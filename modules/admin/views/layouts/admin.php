@@ -6,12 +6,8 @@
 
 use yii\helpers\Html;
 use app\assets\AppAsset;
-use \yii\bootstrap\Modal;
-
-//use app\assets\IEAsset;
 
 AppAsset::register($this);
-//IEAsset::register($this); скрипты по условию для ie можно подключить так
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -21,7 +17,7 @@ AppAsset::register($this);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php $this->registerCsrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <title>Админка | <?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
     <?php
     $this->registerJsFile('js/html5shiv.js', ['position' => \yii\web\View::POS_HEAD, 'condition' => 'lte IE9'])
@@ -94,15 +90,16 @@ AppAsset::register($this);
                         <ul class="nav navbar-nav">
                             <?php if(!Yii::$app->user->isGuest): ?>
                                 <li><a href="<?= \yii\helpers\Url::to(['/site/logout'])?>"><i class="fa fa-user"></i> <?= Yii::$app->user->identity['username']?> (Выход)</a></li>
-                            <?php else:?>
+                           <?php else:?>
                                 <li><a href="<?= \yii\helpers\Url::to(["/admin"]) ?>"><i class="fa fa-lock"></i> Login</a></li>
+
                             <?php endif;?>
+
                             <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                             <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                             <li>
                                 <button type="button" class="getCart"><i class="fa fa-shopping-cart"></i> Cart</button>
                             </li>
-                            <li><a href="<?= \yii\helpers\Url::to(["/admin"]) ?>"><i class="fa fa-lock"></i> Login</a></li>
                         </ul>
                     </div>
                 </div>
@@ -158,7 +155,10 @@ AppAsset::register($this);
 </header><!--/header-->
 
 <?php $this->beginBody() ?>
-<?= $content ?>
+<div class="container">
+    <?= $content ?>
+</div>
+
 <?php $this->endBody() ?>
 <footer id="footer"><!--Footer-->
     <div class="footer-top">
@@ -319,16 +319,7 @@ AppAsset::register($this);
     </div>
 
 </footer><!--/Footer-->
-<?php Modal::begin([
-    'id' => 'js-cart-modal',
-    'size' => 'modal-lg',
-    'header' => '<h2>Корзина</h2>',
-    'footer' => '<button type="button" class="btn btn-secondary" data-dismiss="modal">Продолжить покупки</button>
-        <a href="' . \yii\helpers\Url::to(['cart/view']) . '"  class="btn btn-success">Оформить заказ</a>
-        <button type="button" class="btn btn-danger" onclick="clearCart()">Очистить корзину</button>'
-]); ?>
 
-<?php Modal::end(); ?>
 </body>
 </html>
 <?php $this->endPage() ?>
