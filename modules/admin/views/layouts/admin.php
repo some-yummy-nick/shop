@@ -92,7 +92,6 @@ AppAsset::register($this);
                                 <li><a href="<?= \yii\helpers\Url::to(['/site/logout'])?>"><i class="fa fa-user"></i> <?= Yii::$app->user->identity['username']?> (Выход)</a></li>
                            <?php else:?>
                                 <li><a href="<?= \yii\helpers\Url::to(["/admin"]) ?>"><i class="fa fa-lock"></i> Login</a></li>
-
                             <?php endif;?>
 
                             <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
@@ -100,6 +99,10 @@ AppAsset::register($this);
                             <li>
                                 <button type="button" class="getCart"><i class="fa fa-shopping-cart"></i> Cart</button>
                             </li>
+                            <?php if(!Yii::$app->user->isGuest): ?>
+                                <li><a href="<?= \yii\helpers\Url::to(['/admin']) ?>"> Admin</a></li>
+
+                            <?php endif;?>
                         </ul>
                     </div>
                 </div>

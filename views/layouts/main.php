@@ -102,7 +102,6 @@ AppAsset::register($this);
                             <li>
                                 <button type="button" class="getCart"><i class="fa fa-shopping-cart"></i> Cart</button>
                             </li>
-                            <li><a href="<?= \yii\helpers\Url::to(["/admin"]) ?>"><i class="fa fa-lock"></i> Login</a></li>
                         </ul>
                     </div>
                 </div>
