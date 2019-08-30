@@ -32,12 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function ($data) {
                     return !$data->status ? '<span class="text-danger">Активен</span>' : 'Завершен';
                 },
-                'format'=>'html'],
-//            'status',
-            //'name',
-            //'email:email',
-            //'phone',
-            //'address',
+                'format' => 'html'],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
