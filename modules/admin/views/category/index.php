@@ -6,15 +6,15 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Orders';
+$this->title = 'Categories';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="order-index">
+<div class="category-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Order', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Category', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
 
@@ -22,15 +22,16 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'columns' => [
             'id',
-            'created_at',
-            'updated_at',
-            'qty',
-            'sum',
-            ['attribute' => 'status',
+            [
+                'attribute' => 'parent_id',
                 'value' => function ($data) {
-                    return !$data->status ? '<span class="text-danger">Активен</span>' : 'Завершен';
-                },
-                'format' => 'html'],
+                    return $data->category->name ? $data->category->name : 'Самостоятельная категория';
+
+                }
+            ],
+            'name',
+            'keywords',
+            'description',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
