@@ -25,6 +25,7 @@ class AppAsset extends AssetBundle
         'css/price-range.css',
         'css/animate.css',
         'css/main.css',
+        'css/style.css',
         'css/responsive.css',
     ];
     public $js = [

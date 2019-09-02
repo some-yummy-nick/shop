@@ -133,6 +133,7 @@ AppAsset::register($this);
 </header><!--/header-->
 
 <?php $this->beginBody() ?>
+<?=1 ?>
 <?= $content ?>
 <?php $this->endBody() ?>
 <footer id="footer"><!--Footer-->
